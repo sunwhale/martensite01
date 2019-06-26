@@ -1,4 +1,4 @@
- \documentclass[final,5p,times,onecolumn,10pt,sort&compress]{elsarticle}
+\documentclass[preprint,5p,twocolumn,10pt,sort&compress]{elsarticle}
 \newcommand{\upcite}[1]{\textsuperscript{\textsuperscript{ \cite{#1}}}}
 %% For including figures, graphicx.sty has been loaded in
 %% elsarticle.cls. If you prefer to use the old commands
@@ -13,7 +13,8 @@
   \usepackage{tabularx}
 %  \usepackage{multirow}
 %\usepackage{xeCJK}
-
+\usepackage{overpic}
+\usepackage{caption}
 \usepackage{array}
 \setlength{\mathindent}{0pt}
 \usepackage{booktabs}
@@ -59,6 +60,9 @@
 \newcommand{\dd}{{\rm d}}
 \newcommand{\degreeC}{{$^\circ$C}}
 \newcommand{\marked}[1]{\textcolor{red}{#1}}
+\newcommand{\jingyu}[1]{\textcolor{magenta}{#1}}
+\renewcommand\figureautorefname{Fig.}
+\captionsetup[figure]{labelfont={bf},font={footnotesize},name={Fig.},labelsep=period}
 
 \graphicspath{{figures/}}
 
@@ -107,7 +111,7 @@
 \ead{yuan.huang@tsinghua.edu.cn}
 
 \begin{abstract}
-In the present paper, the strain-induced martensitic transformation and cyclic plasticity model of metastable austenitic steel AISI348 under multiaxial proportional cyclic loadings were studied. Cyclic loading tests under different stress triaxialities and loading amplitudes were carried out. The variation of martensite content within a loading cycle was investigated and it was observed that the martensite would decrease under certain stress-strain state. On the basis of the Santacreu model, a kinetics model describing the evolution of martensitic transformation under multiaxial cyclic loading was obtained by defining a threshold of equivalent plastic strain for phase transformation. The prediction of martensite content by the model matched well with the experiments. By introducing martensitic transformation strengthening to isotropic hardening, an Ohno-Wang model based cyclic plasticity model of AISI348 was obtained and the stress-strain response was well described.
+In the present paper, the strain-induced martensitic transformation and cyclic plasticity model of metastable austenitic steel AISI 348 under multiaxial proportional cyclic loadings were studied. Cyclic loading tests under different stress triaxialities and loading amplitudes were carried out. The variation of martensite content within a loading cycle was investigated and it was observed that the martensite would decrease under certain stress-strain state. On the basis of the Santacreu model, a kinetics model describing the evolution of martensitic transformation under multiaxial cyclic loading was obtained by defining a threshold of equivalent plastic strain for phase transformation. The prediction of martensite content by the model matched well with the experiments. By introducing martensitic transformation strengthening to isotropic hardening, an Ohno-Wang model based cyclic plasticity model of AISI 348 was obtained and the stress-strain response was well described.
 \end{abstract}
 
 %\include{debut}
@@ -130,31 +134,50 @@ Many kinetics models for martensitic transformation in the shape memory alloy an
 
 In past years numerous experimental results on the strain induced martensitic transformation were obtained (\citeauthor{Angel}, \citeyear{Angel}; \citeauthor{Lecroisey1972Martensitic}, \citeyear{Lecroisey1972Martensitic}; \citeauthor{Olson1975Kinetics}, \citeyear{Olson1975Kinetics}; \citeauthor{Hecker1982Effects}, \citeyear{Hecker1982Effects}; \citeauthor{Diani1998Effects}, \citeyear{Diani1998Effects}; \citeauthor{Stringfellow1992A}, \citeyear{Stringfellow1992A}). Transformation kinetics models were proposed and could describe the martensitic transformation under monotonic loadings well. \cite{Olson1975Kinetics} established a function of equivalent plastic strain and temperature to demonstrate the evolution of the martensite content. \cite{Stringfellow1992A} expanded on the Olson and Cohen model by incorporating the effect of the stress triaxiality. \cite{Santacreu2006Behaviour} investigated the austenitic stainless steels for automotive structural parts and improved the Guimar{\~a}es model  (\citeauthor{Guimar1974Temperature}, \citeyear{Guimar1974Temperature}) by coupling the temperature with the maximum  of the martensite content and introducing stress triaxiality. Apart from describing the stress state with stress triaxiality, the lode angle parameter was included by \cite{Beese2011Effect}. For martensitic transformation under cyclic loadings, cyclic strain rate  (\citeauthor{Pegues2017Cyclic}, \citeyear{Pegues2017Cyclic}), strain amplitude  (\citeauthor{Wu2017Mechanical}, \citeyear{Wu2017Mechanical}) as well as accumulated plastic strain  (\citeauthor{Bayerlein1989Plasticity}, \citeyear{Bayerlein1989Plasticity}) were considered in kinetics models. \cite{Smaga2008Deformation} conducted uniaxial cyclic loading tests on three kinds of metastable austenitic steels and modeled the transformation as a function of the accumulated plastic strain and the cumulative strain-energy density. However, the effect of strain amplitudes which is essential for the kinetics model was not taken into account in the  transformation kinetics model under cyclic loadings.Furthermore, the effect of stress triaxiality for multi-axial under cyclic loading was rarely discussed. In addition, most of the known works focused on the influence of temperature and loading history while the plasticity representation which is of importance for the application of the material in industrial design was seldom considered.
 
+\jingyu{The austenitic stainless steel AISI 348 is extensively used in chemical plant constructions in the corrosive environment  (\citeauthor{Nebel2003Cyclic}, \citeyear{Nebel2003Cyclic}). The niobium in AISI 348 improves the corrosive resistance and, however, reduces the stability of the austenitic phase  (\citeauthor{Hahnenberger2014Microstructural}, \citeyear{Hahnenberger2014Microstructural}). The material becomes metastable and can transform into the martensitic phase under mechanical loads (\citeauthor{Smaga2008Deformation}, \citeyear{Smaga2008Deformation}; \citeauthor{Nebel2003Cyclic}, \citeyear{Nebel2003Cyclic}; \citeauthor{Hahnenberger2014Microstructural}, \citeyear{Hahnenberger2014Microstructural}). The martensitic transformation plays an important role in characterizing the mechanical behavior of AISI 348.}
+
 In the present paper, results of multi-axial proportional cyclic loading tests performed in a metastable austenitic stainless steel are reported. Effects of the stress triaxiality and the strain amplitude are clarified  and integrated into the transformation model. A transformation kinetics equation is proposed based on the Santacreu model (\citeauthor{Santacreu2006Behaviour}, \citeyear{Santacreu2006Behaviour}) and the evolution of martensite content is described well in comparing with experimental measurements. A cyclic plasticity model is developed to predict the mechanical behavior of the steel under multi-axial loading and can predict experimental results reasonably. The present work provides a systematic results for plastic deformations with martensitic phase transformation under cyclic loading conditions.
 
 
 \section{Experiments}
 
-\subsection{Specimens}
+\subsection{Material specification}
 
-The austenitic stainless steel AISI348 is extensively used in chemical plant constructions in the corrosive environment  (\citeauthor{Nebel2003Cyclic}, \citeyear{Nebel2003Cyclic}). The niobium in AISI348 improves the corrosive resistance and, however, reduces the stability of the austenitic phase  (\citeauthor{Hahnenberger2014Microstructural}, \citeyear{Hahnenberger2014Microstructural}). The material becomes metastable and can transform into the martensitic phase under mechanical loads (\citeauthor{Smaga2008Deformation}, \citeyear{Smaga2008Deformation}; \citeauthor{Nebel2003Cyclic}, \citeyear{Nebel2003Cyclic}; \citeauthor{Hahnenberger2014Microstructural}, \citeyear{Hahnenberger2014Microstructural}). The martensitic transformation plays an important role in characterizing the mechanical behavior of AISI348.
+\jingyu{The material used in the paper is the stainless steel AISI 348, which was provided by German manufacturer Boehler Edelstahl GmbH. The alloy was delivered in the form of rods with a diameter of 18 mm. The chemical composition of AISI 348 is given in \autoref{Tab:ChemicalComposition}. The rods were solution-treated at 1020\degreeC~ for one hour then cooled to room temperature in water. The metallographic structure of the material was characterized through electron backscatter diffraction (EBSD) analysis. As shown in \autoref{fig:BMmicrostructure}, the initial grains were almost fully austenitic and the average grain size was about $4.5 \rm{\mu m}$.}
 
-In the present work the stainless steel  AISI348 was provided by German manufacturer Boehler Edelstahl GmbH. The alloy was delivered in the form of bars with a diameter of 18mm. The composition by wt.\% is (Fe balance): 17.16 Cr, 10.46 Ni, 1.93 Mn, 0.39 Si, 0.27 Mo, 0.07 Co, 0.002 Ta, 0.40 Nb, and 0.026 C, with other elements less than 0.1. AISI348 has elastic modulus of $E=$180GPa and yield stress of $\sigma _{0.2}$=270MPa according to the inspection certificate. The martensite start temperature $M_{\rm s}$ estimated using the empirical Eichelman and Hull formula (\citeauthor{Eichelman}, \citeyear{Eichelman}) is close to -241\degreeC. In order to obtain a homogeneous microstructure, the material was annealed at 1020\degreeC~and quenched in water. The metallographic structure of the as-received material was characterized through optical microscope. The initial microstructure was fully austenitic and the average grain size was $10.5\pm1.0 \mu m$. From known experimental observations (\citeauthor{Smaga2008Deformation}, \citeyear{Smaga2008Deformation}; \citeauthor{Nebel2003Cyclic}, \citeyear{Nebel2003Cyclic}; \citeauthor{Hahnenberger2014Microstructural}, \citeyear{Hahnenberger2014Microstructural}) the austenite AISI348 can transfer to martensite at different extent of deformations.
+% AISI 348 has elastic modulus of $E=$180GPa and yield stress of $\sigma _{0.2}$=270MPa according to the inspection certificate. The martensite start temperature $M_{\rm s}$ estimated using the empirical Eichelman and Hull formula (\citeauthor{Eichelman}, \citeyear{Eichelman}) is close to -241\degreeC. 
+
+% From known experimental observations (\citeauthor{Smaga2008Deformation}, \citeyear{Smaga2008Deformation}; \citeauthor{Nebel2003Cyclic}, \citeyear{Nebel2003Cyclic}; \citeauthor{Hahnenberger2014Microstructural}, \citeyear{Hahnenberger2014Microstructural}) the austenite AISI 348 can transfer to martensite at different extent of deformations.
+
+\begin{table}[!ht]
+  \centering
+  \caption{\jingyu{Chemical compositions of AISI 348 (wt. \%)}}
+    \begin{tabular}{llll}
+    \toprule
+    Element & wt. \% & Element & wt. \% \\
+    \midrule
+    Cr    & 17.16  & Ni    & 10.46 \\
+    C     & 0.07   & Mn    & 1.93 \\
+    Mo    & 0.27   & Co    & 0.07 \\
+    Nb    & 0.40   & Ta    & 0.002 \\
+    Si    & 0.39   & P     & 0.021 \\
+    S     & $\leq$0.003    & Fe     & Balance \\
+    \bottomrule
+    \end{tabular}%
+  \label{Tab:ChemicalComposition}
+\end{table}
+
+\begin{figure}[!htp]
+  \begin{center}
+  \includegraphics[width=8cm]{BMmicrostructure.png}
+  \caption{Microstructure of as-received AISI 348 stainless steel characterized by EBSD. The initial microstructure was almost fully austenitic and the average grain size was $4.5 \rm{\mu m}$.}
+  \label{fig:BMmicrostructure}
+  \end{center}
+\end{figure}
 
 %\begin{table}[!h]
 %	\begin{center}
-%	\caption{Nominal chemical composite of the stainless steel AISI348 (wt, \%)}
-%    \label{tab:Chemical Composition}
-%		\begin{tabular}{ c c c c c c c c c c c c}  \hline %means horizon lineeq:AlternatingCurve
-%		Cr & Ni & C & Mn & Mo & Co & Nb & Ta & Si & P & S & Fe  \\  \hline
-%		17.16&10.46&0.07&1.93&0.27&0.07&0.40&0.002&0.39&0.021&$\leq$0.003&Balance  \\  \hline
-%		\end{tabular}
-%	\end{center}
-%\end{table}
-
-%\begin{table}[!h]
-%	\begin{center}
-%	\caption{Initial mechanical properties of the stainless steel AISI348}
+%	\caption{Initial mechanical properties of the stainless steel AISI 348}
 %    \label{tab:Mechanical Properties}
 %		\begin{tabular}{ c c c c }  \hline %means horizon line
 %		Elastic modulus & Yield Stress  & Tensile Strength & Fracture Strain \\  \hline
@@ -163,22 +186,91 @@ In the present work the stainless steel  AISI348 was provided by German manufact
 %	\end{center}
 %\end{table}
 
+\subsection{Specimens}
 
-For multiaxial cyclic loading tests, round bar specimens and thin-walled tubular specimens were fabricated. After the cyclic loading tests, the specimens were sectioned and mechanically grounded and polished for metallographic analysis. In order to remove the interference of the martensite content (MC) which might newly grow during the mechanical grinding and polishing, electrochemical polishing was conducted before XRD (X-Ray diffraction) observations.
+\jingyu{Cylindrical and tubular specimens were machined for uniaxial and biaxial test, respectively. The dimension of the cylindrical specimen is shown in \autoref{Fig:Specimen}(a), the gauge length of the cylindrical specimen is equal to 20 mm and the diameter of the gauge section is 10 mm. \autoref{Fig:Specimen}(b) shows the gauge length of the tubular specimen is equal to 30 mm and the inner and outer diameters of the gauge section are 10 mm and 12.5 mm, respectively. All specimens were polished to obtain smooth surface.}
 
-\subsection{Cyclic material tests}
+	\begin{figure}[!htp]
+    \centering
+    \begin{overpic}[width=8.0cm]{SS348_Solid.pdf}
+        \put(90,20){\fcolorbox{white}{white}{(a)}}
+    \end{overpic}
+    \begin{overpic}[width=8.0cm]{SS348_Tubular.pdf}
+        \put(90,20){\fcolorbox{white}{white}{(b)}}
+    \end{overpic}
+    \caption{\jingyu{Dimensions of the specimen: (a) cylindrical for uni-axial tests and (b) tubular for biaxial tests.}}
+    \label{Fig:Specimen}
+\end{figure}
 
-The specimens were tested at room temperature in a servohydraulic MTS testing machine under strain control with help of a multi-axial extensometer. Triangular wave was employed in order to keep the strain rate constant at $8\times 10^{-3}$s$^{-1}$. The loading ratio was $R_{\varepsilon }=-1$ and the equivalent strain amplitudes were $\varepsilon_{\rm a}=0.5\%,0.8\%,1.0\%$, respectively. The cyclic loading tests were kept running until the measured MC reached a certain value (50\%-ferrite) or until the specimens broke.
+\subsection{Tests procedure}
 
-The paramagnetic austenite  transforms into ferromagnetic martensite during the martensitic transformation. Therefore, the MC change in the specimens was measured in situ by a Feritscope 'Fischer FERITSCOPE FMP30'. The measurement probe of the Feritscope was held in contact with the surface of the specimens. A magnetic field around the probe was created by an input wire coiled around the iron core of the measurement probe.
+\jingyu{All tests were conducted on a servo hydraulic tension-torsion test machine under strain controlled at room temperature. An uniaxial extensometer with gauge length of 10 mm was used in the tension-compression test. In the biaxial test, the axial and shear strain were measured by an tension-torsional extensometer with gauge length of 25 mm. Fully reversed strain-controlled cyclic experiments were carried out for the 4 types of loading, summarized in detail in \autoref{Tab:LoadPath}. The loading paths contains tension-compression, torsion, proportional loading and non-proportional loading. The triangle-shaped strain waveforms were used to keep the strain rate constant in all tests. }
 
-The martensitic phase transformation is sensitive to the test procedure. The test temperature has decisive influence on the martensite phase. Since the temperature affects the stability of the austenite phase in austenitic stainless steels, the temperature variation during the tests has to be small. \cite{Smaga2008Deformation} kept the loading frequency at 0.2Hz and the temperature variation of the specimens was below 20\degreeC.
+\jingyu{Equivalent mechanical strain, $\varepsilon_{\mathrm{eq}}=\sqrt{\varepsilon^{2}+\gamma^{2} / 3}$, is calculated in analogy to the von Mises stress. The loading ratios for all tests were the same as $R_{\varepsilon }=-1$. The equivalent strain amplitudes were shown in \autoref{Tab:test_matrix}. The cyclic loading tests were kept running until the measured MC reached a certain value (50\%-ferrite) or until the specimens failure.}
 
-It is known that the Villari effect  (Inverse magnetostrictive effect)  affects the measurement of martensite in stainless steels, which refers to the fact that the materials have a change of magnetic susceptibility when subjected to mechanical stressing. To reduce this adverse effect, the applied mechanical loads on the specimens have to be removed before  measuring the martensite. In the present work, the stress was unloaded to zero and the stress-free condition was kept for 10s before the data extraction in order to obtain more accurate and stable readings.
+\begin{figure}[!htp]
+  \begin{center}
+  \includegraphics[width=8cm]{TestSetup.pdf}
+  \caption{\jingyu{Cyclic tension-torsional test with the extensometer and the Feritscope.}}
+  \label{fig:Testsetting}
+  \end{center}
+\end{figure}
 
-The contact condition on the head of the probe has minor influence on readings. The probe should be in contact with the surface of the specimens during tests. To overcome this problem, an aluminum holder was fabricated to fix the measurement probe and rubber bands were used to keep the contact pressure constant.
+\begin{table*}[!ht]
+  \centering
+  \caption{\jingyu{Loading paths of cyclic tests.}}
+    \begin{tabular}{p{2.0cm}p{4.0cm}p{4cm}p{4cm}}
+    \toprule
+    Symbol & Type of loading & Loading wave & Strain path  \\
+    \midrule
+    TC     & tension-compression  & \begin{minipage}{0.1\textwidth}\includegraphics[width=3cm]{load_path_1_time.pdf}\end{minipage}  & \begin{minipage}{0.1\textwidth}\includegraphics[width=3cm]{load_path_1.pdf}\end{minipage} \\
+	\midrule
+    TOR    & torsion  & \begin{minipage}{0.1\textwidth}\includegraphics[width=3cm]{load_path_2_time.pdf}\end{minipage}  & \begin{minipage}{0.1\textwidth}\includegraphics[width=3cm]{load_path_2.pdf}\end{minipage} \\
+	\midrule
+    PRO    & proportional  & \begin{minipage}{0.1\textwidth}\includegraphics[width=3cm]{load_path_3_time.pdf}\end{minipage}  & \begin{minipage}{0.1\textwidth}\includegraphics[width=3cm]{load_path_3.pdf}\end{minipage} \\
+	\midrule
+    NPR    & non-proportional  & \begin{minipage}{0.1\textwidth}\includegraphics[width=3cm]{load_path_4_time.pdf}\end{minipage}  & \begin{minipage}{0.1\textwidth}\includegraphics[width=3cm]{load_path_4.pdf}\end{minipage} \\
+    \bottomrule
+    \end{tabular}%
+  \label{Tab:LoadPath}%
+\end{table*}%
 
-The measurement range of the Feritscope is 0$\sim$80\% Fe. The reading of the Feritscope was designed for the ferrite instead of the martensite, so calibration and amendment were required for the actual MC. The conversion coefficient for the readings of Feritscope to the actual MC was recommended  by \cite {Talonen2004} as 1.7.
+\begin{table}[!ht]
+  \centering
+  \caption{\jingyu{Experimental conditions of the tests.}}
+    \begin{tabular}{p{2.0cm}p{1.0cm}<{\centering}p{1cm}<{\centering}p{1cm}<{\centering}p{1.5cm}<{\centering}}
+    \toprule
+    Strain path & $\Delta \varepsilon _{\rm{eq}}/2$ & $\Delta \varepsilon$/2 & $\Delta \gamma $/2 &$\dot \varepsilon _{\rm{eq}}$ \\
+        & [\%]  & [\%] & [\%] & [s$^{-1}$] \\
+    \midrule
+    TC    & 1.00  & 1.00 & 1.73  & $8\times 10^{-3}$ \\
+          & 0.80  & 0.80 & 1.38  & $8\times 10^{-3}$ \\
+          & 0.50  & 0.50 & 0.87  & $8\times 10^{-3}$ \\
+    \midrule      
+    TOR   & 1.00  & 1.00 & 1.73  & $8\times 10^{-3}$ \\
+          & 0.80  & 0.80 & 1.38  & $8\times 10^{-3}$ \\
+          & 0.50  & 0.50 & 0.87  & $8\times 10^{-3}$ \\
+    \midrule
+    PRO   & 1.00  & 1.00 & 1.73  & $8\times 10^{-3}$ \\
+   	\midrule
+    NPR   & 1.00  & 1.00 & 1.73  & $8\times 10^{-3}$ \\
+    \bottomrule
+    \end{tabular}%
+  \label{Tab:test_matrix}%
+\end{table}%
+
+\jingyu{The martensitic phase content in the specimen was measured in situ using a ferritescope 'Fischer FERITSCOPE FMP30'. The ferritescope measures according to the magnetic induction method. A magnetic field generated by the probe interacted with the magnetic volume fraction of the specimen. The change of the magnetic field induces a voltage proportional to the magnetic fraction in a measuring coil. If the martensitic phase is the only magnetic content in the specimen, then its volume fraction is linearly proportional to the output signal. Period to the test, the ferritescope was calibrated with the calibration samples. The position between the probe and the specimen influences the measuring results. Thus, during the tests, the measurement probe of the feritscope was perpendicular to the surface of the specimen, as presented in \autoref{fig:Testsetting}. The contact force between the probe and the specimen was kept constant during the experiments.}
+
+\jingyu{The martensitic phase transformation is sensitive to the temperature (need some refs). \cite{Smaga2008Deformation} kept the loading frequency at 0.2Hz and the temperature variation of the specimens was below 20\degreeC. In the study, the strain rates were below $8\times 10^{-3}$, in order to keep the temperature of the specimen below 20\degreeC.}
+
+% It is known that the Villari effect (Inverse magnetostrictive effect) affects the measurement of martensite in stainless steels, which refers to the fact that the materials have a change of magnetic susceptibility when subjected to mechanical stressing. 
+The measurement range of the Feritscope is 0$\sim$80\% Fe. The reading of the Feritscope was designed for the ferrite instead of the martensite, so calibration and amendment were required for the actual martensite content. The conversion coefficient for the readings of Feritscope to the actual MC was recommended  by \cite {Talonen2004} as 1.7.
+
+\jingyu{On the other side, due to the inverse magnetostriction, the magnetization of ferromagnetic materials changes with mechanical loadings imposed to the material, the so-called Villari effect. The Villari effect may affect the measured magnetic intensity and be explained by the mechanically induced rotation of domains of uniform polarization within a ferromagnetic material. Generally, mechanical loading decreases the magnetic field intensity. Thus, the measured results under different loading conditions cannot indicate the actual value of the ferrite fraction. To eliminate the Villari effect, the applied mechanical loads on the specimens have to be removed before the measurement. In the study, the stress was unloaded to zero and the stress-free condition was kept for 10 seconds before the data recorded.}
+
+% The contact condition on the head of the probe has minor influence on readings. The probe should be in contact with the surface of the specimens during tests. To overcome this problem, an aluminum holder was fabricated to fix the measurement probe and rubber bands were used to keep the contact pressure constant.
+
+After the cyclic loading tests, the specimens were sectioned and polished for metallographic analysis. In order to remove the interference of the martensite content which might newly grow during the mechanical grinding and polishing, electrochemical polishing was conducted before XRD (X-Ray diffraction) observations.
 
 %Considering the geometry effect additionally, XRD method was used to confirm the conversion coefficient.
 
@@ -232,7 +324,7 @@ To study the specimen scattering, three specimens were tested for $\varepsilon_{
   \end{center}
 \end{figure}
 
-The cyclic softening was considered to be the result of the rearrangement of the dislocation structure which tends to promote the greater dislocation mobility. Similar cyclic secondary hardening was reported for the steel AISI304 and correlated to the increase of  MC (\citeauthor{Pegues2017Cyclic}, \citeyear{Pegues2017Cyclic}). Cyclic secondary hardening  was defined as the difference between the current stress amplitude and the minimum stress amplitude at the end of cyclic softening. As indicated in Fig. \ref{fig:SecondaryHardening}, the cyclic secondary hardening  increases linearly with  MC. Therefore, it is reasonable to suggest that the martensitic transformation has strong influence on the hardening behavior in AISI348.
+The cyclic softening was considered to be the result of the rearrangement of the dislocation structure which tends to promote the greater dislocation mobility. Similar cyclic secondary hardening was reported for the steel AISI304 and correlated to the increase of  MC (\citeauthor{Pegues2017Cyclic}, \citeyear{Pegues2017Cyclic}). Cyclic secondary hardening  was defined as the difference between the current stress amplitude and the minimum stress amplitude at the end of cyclic softening. As indicated in Fig. \ref{fig:SecondaryHardening}, the cyclic secondary hardening  increases linearly with  MC. Therefore, it is reasonable to suggest that the martensitic transformation has strong influence on the hardening behavior in AISI 348.
 
 \begin{figure}[!h]
   \begin{center}
@@ -363,7 +455,7 @@ Evolutions of the martensite content versus accumulated equivalent plastic strai
 
 %\marked{(以下文字我基本没改，但公式、图我都调整了。主要是没想明白，无从下手，许多句子看不懂什么意思，比如这一段的第一句。这几点大家改一下：1. 试验已经证明了单调和循环相变驱动力的差异，还能视而不见吗？2. 这里模型相对很简单，真能重现全部试验结果？算一算比例加载过程。3. 塑性模型如何写你们讨论一下，现在这样太拖，打回的可能很大。)}
 
- It is evident that the evolutions of MC under the same equivalent strain amplitudes are consistent respectively(Fig. \ref{fig:EvolutionModel3}). However, the effect of strain amplitudes should not be simplified as a fitting parameter in the kinetics model. Such kinetics models are insufficient for establishing a constitutive model for the material. Instead, a variable which can solely describe the martensitic transformation needs to be found. It was reported that a certain value of plastic strain must be exceeded to trigger the martensitic transformation in AISI304L stainless steel (\citeauthor{Bayerlein1989Plasticity}, \citeyear{Bayerlein1989Plasticity}). This threshold was found to be $\Delta \varepsilon _{\rm p}/2=0.3\%$. Therefore, it was assumed that there were thresholds of plastic strain for martensitic transformation in AISI348 under cyclic loadings and a kinetics model was developed. Deriving from the Santacreu-type model of martensitic transformation under monotonic loadings (\citeauthor{QSP2014}, \citeyear{QSP2014}), the present newly developed kinetics model can describe martensitic transformation under various loading conditions. The expression of the model is displayed below:
+ It is evident that the evolutions of MC under the same equivalent strain amplitudes are consistent respectively(Fig. \ref{fig:EvolutionModel3}). However, the effect of strain amplitudes should not be simplified as a fitting parameter in the kinetics model. Such kinetics models are insufficient for establishing a constitutive model for the material. Instead, a variable which can solely describe the martensitic transformation needs to be found. It was reported that a certain value of plastic strain must be exceeded to trigger the martensitic transformation in AISI304L stainless steel (\citeauthor{Bayerlein1989Plasticity}, \citeyear{Bayerlein1989Plasticity}). This threshold was found to be $\Delta \varepsilon _{\rm p}/2=0.3\%$. Therefore, it was assumed that there were thresholds of plastic strain for martensitic transformation in AISI 348 under cyclic loadings and a kinetics model was developed. Deriving from the Santacreu-type model of martensitic transformation under monotonic loadings (\citeauthor{QSP2014}, \citeyear{QSP2014}), the present newly developed kinetics model can describe martensitic transformation under various loading conditions. The expression of the model is displayed below:
 \begin{eqnarray}\label{eq:Kinetics model3}
 \dot \chi &=&\left(\chi_{\max }-\chi\right) nD \left(D p_{\rm eff}\right)^{n-1}\dot p_{\rm eff},
 \\
@@ -459,7 +551,7 @@ c_{0}^{k}=\left (\frac{\sigma^{k}-\sigma^{k-1}}{\varepsilon_{\mathrm{p}}^{k}-\va
 \end{equation}
 where $\sigma^{k}$ and $\varepsilon_{\rm p}^{k}$ denote the stress and plastic strain at the k-th point on the monotonic stress-plastic strain curve respectively. $\sigma^{0}$ is the initial yield stress related to the zero plastic strain $\varepsilon_{\rm p} = 0$. Generally, the uniaxial tensile stress-strain curve is represented in 4 sections in the present paper.
 
-In the constitutive model, the saturated value of $c^{k}$ has to be determined from the cyclic stress-strain curve, which can be obtained from the experimental stabilized hysteresis loop. Since the stress-strain curve of AISI348 changes ceaselessly, the half fatigue life $\left (N_{\mathrm{f}} / 2\right)$ cycle is assumed to be the stabilized hysteresis loop instead. The stress-strain curve in the stabilized hysteresis loop can be divided into a stress increasing section and a stress decreasing section. The alternating values of stress and strain were calculated by taking half of the absolute value between a data point and the starting point (\citeauthor{SunCyclic}, \citeyear{SunCyclic}). The alternating stress and strain relation of the stress increasing part and the stress decreasing part can be expressed in the function $f_{\rm  inc } (\sigma, \varepsilon)$ and $f_{\rm { dec }} (\sigma, \varepsilon)$ respectively. The final alternating stress-strain curve is obtained by combining these two functions, as demonstrated in Fig. \ref{fig:Alternating Curve} and Eq. (\ref{eq:AlternatingCurve}).
+In the constitutive model, the saturated value of $c^{k}$ has to be determined from the cyclic stress-strain curve, which can be obtained from the experimental stabilized hysteresis loop. Since the stress-strain curve of AISI 348 changes ceaselessly, the half fatigue life $\left (N_{\mathrm{f}} / 2\right)$ cycle is assumed to be the stabilized hysteresis loop instead. The stress-strain curve in the stabilized hysteresis loop can be divided into a stress increasing section and a stress decreasing section. The alternating values of stress and strain were calculated by taking half of the absolute value between a data point and the starting point (\citeauthor{SunCyclic}, \citeyear{SunCyclic}). The alternating stress and strain relation of the stress increasing part and the stress decreasing part can be expressed in the function $f_{\rm  inc } (\sigma, \varepsilon)$ and $f_{\rm { dec }} (\sigma, \varepsilon)$ respectively. The final alternating stress-strain curve is obtained by combining these two functions, as demonstrated in Fig. \ref{fig:Alternating Curve} and Eq. (\ref{eq:AlternatingCurve}).
 \begin{eqnarray}\label{eq:AlternatingCurve}
 f_{\rm { inc }}^{\rm {alter}} (\sigma, \varepsilon)&=&f_{\rm { inc }} (\left|2 \sigma-\sigma_{\min }\right|, \left|2 \varepsilon-\varepsilon_{\min }\right|)\\
 f_{\rm { dec }}^{\rm {alter}}(\sigma, \varepsilon)&=&f_{\rm { dec }}(\left|2 \sigma-\sigma_{\min }\right|, \left|2 \varepsilon-\varepsilon_{\min }\right|)\\
@@ -563,7 +655,7 @@ Simulation was conducted and the martensite evolution together with stress-strai
 %  \end{center}
 %\end{figure}
 
-In order to verify the constitutive model of AISI348 considering martensitic transformation, stress-strain curves of certain cycles of the experiments were chosen for comparison with the simulation results. For axial cyclic loading tests with a strain amplitude $\varepsilon _{\rm a}=1.0\%$, the second cycle with a martensite content of $\chi=0$, the 260th cycle with a martensite content of $\chi=0.3995$ and the 520th cycle with a martensite content of $\chi=0.8620$ were selected. For axial cyclic loading tests with a strain amplitude $\varepsilon _{\rm a}=0.8\%$, the second cycle with a martensite content of $\chi=0$, the 300th cycle with a martensite content of $\chi=0.2210$ and the 600th cycle with a martensite content of $\chi=0.6531$ were selected. For axial cyclic loading tests with a strain amplitude $\varepsilon _{\rm a}=0.5\%$, the second cycle with a martensite content of $\chi=0$, the 500th cycle with a martensite content of $\chi=0.0269$ and the 3000th cycle with a martensite content of $\chi=0.3381$ were selected.
+In order to verify the constitutive model of AISI 348 considering martensitic transformation, stress-strain curves of certain cycles of the experiments were chosen for comparison with the simulation results. For axial cyclic loading tests with a strain amplitude $\varepsilon _{\rm a}=1.0\%$, the second cycle with a martensite content of $\chi=0$, the 260th cycle with a martensite content of $\chi=0.3995$ and the 520th cycle with a martensite content of $\chi=0.8620$ were selected. For axial cyclic loading tests with a strain amplitude $\varepsilon _{\rm a}=0.8\%$, the second cycle with a martensite content of $\chi=0$, the 300th cycle with a martensite content of $\chi=0.2210$ and the 600th cycle with a martensite content of $\chi=0.6531$ were selected. For axial cyclic loading tests with a strain amplitude $\varepsilon _{\rm a}=0.5\%$, the second cycle with a martensite content of $\chi=0$, the 500th cycle with a martensite content of $\chi=0.0269$ and the 3000th cycle with a martensite content of $\chi=0.3381$ were selected.
 
 The comparison of the stress-strain curve predicted by simulation and experimental results is shown in Fig. \ref{fig:Comparison of Strain10}. It can be drawn from the figure that the cyclic plasticity model can well describe the stress-strain response during most part of the whole process. However, it can be observed from the comparison of cyclic loading tests with $\varepsilon _{\rm a}=0.5\%$ that the value of stress is slightly underestimated for the 500th cycle. This is due to the neglecting of cyclic softening at the early stage of the cyclic loading tests.
 
@@ -618,15 +710,15 @@ The comparison of the stress-strain curve predicted by simulation and experiment
 
 \section{Conclusions}
 
-The martensitic transformation under multi-axial proportional cyclic loadings in metastable austenitic stainless steel AISI348 was investigated. The material exhibited initial cyclic softening and significant secondary cyclic hardening due to the growth of martensite.
+The martensitic transformation under multi-axial proportional cyclic loadings in metastable austenitic stainless steel AISI 348 was investigated. The material exhibited initial cyclic softening and significant secondary cyclic hardening due to the growth of martensite.
 
 The variation of martensite content within a loading cycle was observed.  It was found that the martensite content would decrease when the product of stress and strain $\sigma \cdot \varepsilon$ was greater than zero and would increase otherwise during cyclic loadings. In addition, the relative amplitude of this 'fluctuation' of martensite content and the $\varepsilon _{a}$ were positively correlated.
 
 The evolution of the martensite content was described as a function of the accumulated equivalent plastic strain and a threshold value of equivalent plastic strain to trigger the transformation. The effect of strain amplitude was taken into account in the kinetics model. The kinetics model could degenerate into a more simplified expression to describe the martensitic transformation under monotonic loadings. The martensite content calculated on the basis of this kinetics model was in excellent accordance with the experimentally obtained data.
 
-A cyclic plasticity model for AISI348 was established by correlating the isotropic hardening and the effect of martensitic transformation. The secondary hardening behavior of the material was well described and the equivalent peak and valley stresses predicted by the model matched well with the experimental results.
+A cyclic plasticity model for AISI 348 was established by correlating the isotropic hardening and the effect of martensitic transformation. The secondary hardening behavior of the material was well described and the equivalent peak and valley stresses predicted by the model matched well with the experimental results.
 
-Future work will expand the model to describe the mechanical behavior of AISI348 under non-proportional loading paths. The cyclic softening will be taken into account in the cyclic plasticity model. In addition, the change of martensite content within a cycle will be considered for a more accurate transformation kinetics model.
+Future work will expand the model to describe the mechanical behavior of AISI 348 under non-proportional loading paths. The cyclic softening will be taken into account in the cyclic plasticity model. In addition, the change of martensite content within a cycle will be considered for a more accurate transformation kinetics model.
 
 
 \section*{Acknowledgment:} The present work is financed by the China Natural Science Foundation under the contract numbers 11572169 and 51775294.
